@@ -8,9 +8,15 @@ namespace FirstWebApp.Controllers
 {
     public class ComicBookController : Controller
     {
-        public string Detail()
+        public ActionResult Detail()
         {
-            return "hello in the first hello";
+            if (DateTime.Today.DayOfWeek == DayOfWeek.Tuesday)
+            {
+                return Redirect("/");
+                return new RedirectResult("/");
+            }
+
+            return Content("Hello ana");
         }
     }
 }
