@@ -3,25 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using FirstWebApp.Models;
 
 namespace FirstWebApp.Controllers
 {
     public class ComicBooksController : Controller
     {
-       
+
         public ActionResult Detail()
         {
-            ViewBag.SeriesTitle = "The Amazing Hero";
-            ViewBag.IssueNumber = 700;
-            ViewBag.Description = "<p>The best Book in World <strong>HaHaHaHa</strong></p> ";
-            ViewBag.Artists = new string[]
+            var comicBook = new ComicBook()
             {
-        "script : ana",
-        "Pencils : ana",
-        "Inks : ana",
+                SeriesTitle = "The Amazing Spider-Man",
+                IssueNumber = 700,
+                DescriptionHtml = "<p>The best Book in World <strong>HaHaHaHa</strong></p>",
+                Artists = new Artist[]
+                {
+                    new Artist() {name = "ana", Role = "script"},
+                    new Artist() {name = "ana", Role = "Pencils"},
+                    new Artist() {name = "ana", Role = "Inks"}
+                }
             };
 
-            return View();
+            return View(comicBook);
         }
     }
 }
