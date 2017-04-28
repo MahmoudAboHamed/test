@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using System.Runtime.Remoting.Messaging
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -26,8 +27,16 @@
             </div>
         </div>
     </div>
-
-    <div class="container body-content">
+    
+    @if (ViewBag.ShowBackBar != null && ViewBag.ShowBackBar)
+    {
+        <div class="backbar">
+            <div class="container">
+                @Html.ActionLink("Return To List","Index",null, new { @class = "btn btn-default" })
+            </div>
+        </div>
+    }
+<div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
