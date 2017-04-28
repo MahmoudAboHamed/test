@@ -11,33 +11,48 @@ namespace FirstWebApp.Data
         public static ComicBook[] _comicBook = new ComicBook[]
         {
              new ComicBook()
-            {
+              {
+                 Id = 1,
+                    SeriesTitle = "The Amazing Spider-Man",
+                    IssueNumber = 700,
+                    DescriptionHtml = "<p>The best Book in World <strong>HaHaHaHa</strong></p>",
+                    Artists = new Artist[]
+                    {
+                        new Artist() {name = "ana", Role = "script"},
+                        new Artist() {name = "ana", Role = "Pencils"},
+                        new Artist() {name = "ana", Role = "Inks"}
+                    },
+                    Favorite = false
+             },
+            new ComicBook()
+             {
+                Id =2,
                 SeriesTitle = "The Amazing Spider-Man",
-                IssueNumber = 700,
+                IssueNumber = 657,
                 DescriptionHtml = "<p>The best Book in World <strong>HaHaHaHa</strong></p>",
                 Artists = new Artist[]
-    {
+                {
                     new Artist() {name = "ana", Role = "script"},
                     new Artist() {name = "ana", Role = "Pencils"},
                     new Artist() {name = "ana", Role = "Inks"}
-    },Favorite = false
-            },
-                          new ComicBook()
+                },
+                Favorite = false
+             },
+           new ComicBook()
             {
-                SeriesTitle = "The Amazing Spider-Man",
-                IssueNumber = 700,
+               Id = 3,
+                SeriesTitle = "Bone",
+                IssueNumber = 50,
                 DescriptionHtml = "<p>The best Book in World <strong>HaHaHaHa</strong></p>",
                 Artists = new Artist[]
-    {
+                {
                     new Artist() {name = "ana", Role = "script"},
                     new Artist() {name = "ana", Role = "Pencils"},
                     new Artist() {name = "ana", Role = "Inks"}
-    },Favorite = false
-            },
-
-
-
-    };
+               },
+               Favorite = false
+            }
+        };
 
 
         public ComicBook GetComicBook(int id)

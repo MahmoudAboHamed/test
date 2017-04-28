@@ -3,27 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using FirstWebApp.Data;
 using FirstWebApp.Models;
 
 namespace FirstWebApp.Controllers
 {
     public class ComicBooksController : Controller
     {
+        private ComicBookRepository _comicBookRepository = null;
 
-        public ActionResult Detail()
+        public ComicBooksController()
         {
-            var comicBook = new ComicBook()
+            _comicBookRepository = new ComicBookRepository();
+        }
+        public ActionResult Detail(int? id)
+        {
+            if (id == null)
             {
-                SeriesTitle = "The Amazing Spider-Man",
-                IssueNumber = 700,
-                DescriptionHtml = "<p>The best Book in World <strong>HaHaHaHa</strong></p>",
-                Artists = new Artist[]
-                {
-                    new Artist() {name = "ana", Role = "script"},
-                    new Artist() {name = "ana", Role = "Pencils"},
-                    new Artist() {name = "ana", Role = "Inks"}
-                }
-            };
+                return HttpNotFound();
+            }
+            var comicBook = _comicBookRepository.GetComicBook((int)id);
 
             return View(comicBook);
         }
