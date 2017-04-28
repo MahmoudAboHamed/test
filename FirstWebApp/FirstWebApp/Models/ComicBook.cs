@@ -16,7 +16,7 @@ namespace FirstWebApp.Models
 
         public string DisplayText
         {
-            get { return SeriesTitle + " " + IssueNumber; }
+            get { return SeriesTitle + " # " + IssueNumber; }
         }
 
         public string CoverImageFileName

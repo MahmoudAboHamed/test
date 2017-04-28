@@ -8,7 +8,7 @@ namespace FirstWebApp.Data
 {
     public class ComicBookRepository
     {
-        public static ComicBook[] _comicBook = new ComicBook[]
+        public static ComicBook[] _comicBooks = new ComicBook[]
         {
              new ComicBook()
               {
@@ -54,12 +54,16 @@ namespace FirstWebApp.Data
             }
         };
 
+        public ComicBook [] GetComicBooks()
+        {
+            return _comicBooks;
+        }
 
         public ComicBook GetComicBook(int id)
         {
             ComicBook comicBookToReturn = null;
 
-            foreach (var comicBook in _comicBook)
+            foreach (var comicBook in _comicBooks)
             {
                 if (comicBook.Id == id)
                 {
